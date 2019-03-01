@@ -1,0 +1,70 @@
+.container-fluid {
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.onesection {
+	-webkit-box-flex: 1.0;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+.nav {
+	margin-bottom: 1px;
+}
+
+.nav .active {
+	color: #42beff;
+	border-bottom: 2px solid #08c;
+}
+
+.Userarchit>ul {
+	background: #F0F0F0;
+}
+.nav>li {
+	width: 33%;
+	text-align: center;
+}
+
+.nav-tabs>.active>a,
+.nav-tabs>.active>a:hover,
+.nav-tabs>.active>a:focus {
+	color: #08c;
+	cursor: default;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+.panel{
+	padding: 15px 10px 10px 10px;
+	background-color: #FFFFFF;
+	margin-bottom: 2px;
+}
+.sender{
+	color: #5B5B5B;
+	height: 75px;
+}
+.read_state{
+    float: right;
+    padding-right: 3px;
+}
+.css2 {
+	overflow: hidden;
+	/*自动隐藏文字*/
+	text-overflow: ellipsis;
+	/*文字隐藏后添加省略号*/
+	white-space: nowrap;
+	/*强制不换行*/
+	width: 20em;
+	/*不允许出现半汉字截断*/
+	color: #000000;
+	border: 1px #FFFFFF dashed;
+	margin: 5px 0;
+    height: 20px;
+}
+.smallid{
+    float: right;
+}

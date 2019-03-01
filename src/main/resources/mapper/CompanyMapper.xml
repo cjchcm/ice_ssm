@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.togogo.mapper.CompanyMapper">
+    <!--注册 普通用户-->
+    <insert id="createCompany" parameterType="net.togogo.bean.Company">
+        insert into tb_company (comp_email,comp_password,comp_name)values (
+        #{comp_email},#{comp_password},#{comp_name}
+        )
+    </insert>
+
+    <!--判断邮箱是否存在-->
+    <select id="checkExist" parameterType="java.lang.String" resultType="net.togogo.bean.Company">
+        select * from tb_company where comp_email = #{email}
+    </select>
+
+    <!--公司登录-->
+    <select id="checkLogin" parameterType="net.togogo.bean.Company" resultType="net.togogo.bean.Company">
+        select * from tb_company where comp_email = #{comp_email} and comp_password = #{comp_password}
+    </select>
+</mapper>

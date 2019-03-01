@@ -1,0 +1,256 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-shadow: none;
+	font-weight: normal!important;
+	font-family: 'Microsoft YaHei', Arial
+}
+
+input,
+button,
+select,
+textarea {
+	outline: none
+}
+
+html {
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0)
+}
+body {
+				min-height: 457px;
+				background: #fff;
+			}
+input {
+	border: 1px;
+}
+
+ul,
+li {
+	list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal
+}
+
+body {
+	background-color: #d6d6d6;
+	min-width: 320px;
+	-webkit-user-select: none;
+	position: relative
+}
+
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+.blank{
+	background: #FFFFFF;
+	height: 160px;
+}
+
+.right {
+	float: right
+}
+.left{
+	float: left;
+}
+#r_header {
+	height: 49px;
+	background-color: #1d8aff;
+	text-align: center;
+	overflow: hidden
+}
+
+.r_title {
+	color: #fff;
+	line-height: 49px;
+	position: relative;
+	font-size: 20px;
+	z-index: 4
+}
+
+.r_returnbk {
+	position: absolute;
+	left: 0;
+	width: 50px;
+	height: 49px;
+	top: 0px
+}
+
+.r_returnbk i {
+	display: block;
+	font-style: normal;
+	height: 30px;
+	width: 30px;
+	float: left;
+	padding: 8px 0 0 10px;}
+
+.r_returnbk img {
+	height: 30px;
+	width: 30px;
+	float: left;
+	padding: 10px 0 0 10px
+}
+
+#r_header .clearContent {
+	position: absolute;
+	line-height: 49px;
+	right: 15px;
+	top: 0;
+	font-size: 16px
+}
+/*底部按钮的css*/
+	.footernav {
+    /*background: #eee6e6;*/
+    box-shadow: none;
+	}
+	.footernavli {
+    display: block;
+    width: 20%;
+    float: left;
+    text-align: center;
+	}
+	.footernavimg {
+    display: block;
+    padding: 5px 0;
+	}
+	.mui-bar-tab {
+	    bottom: 0;
+	    display: table;
+	    width: 100%;
+	    height: 50px;
+	    padding: 0;
+	    table-layout: fixed;
+	    border-top: 0;
+	    border-bottom: 0;
+	    -webkit-touch-callout: none;
+	}
+	.mui-bar {
+	    position: fixed;
+	    z-index: 10;
+	    right: 0;
+	    left: 0;
+	    height: 44px;
+	    /*margin-top: 5px;*/
+	    border-bottom: 0;
+	    background-color: #1d8aff;
+	    -webkit-box-shadow: 0 0 1px rgba(0,0,0,.85);
+	    box-shadow: 0 0 1px rgba(0,0,0,.85);
+	    -webkit-backface-visibility: hidden;
+	    backface-visibility: hidden;
+	}
+	.footernavtxt {
+    display: block;
+    font-size: 12px;
+    color: #F0F0F0;
+    line-height: 13px;
+    padding-bottom: 5px ;
+	}
+	.mui-bar a{
+		text-decoration: none;
+    	/*color: #007aff;*/
+	}
+	.mui-bar a img{
+		width: 22px;
+		height: 22px;
+	}
+
+	.mui-active{
+	text-decoration: none;
+	/*background-color: #0044CC;*/
+	background:rgba(0,68,204, .7)
+}
+	
+nav>a {
+	position: relative;
+	display: block;
+	/*font-size: 0.9rem;
+	padding: 10px 15px*/
+}
+nav>a:focus,
+nav>a:hover {
+	text-decoration: none;
+	background:rgba(0,68,204, .3)
+}
+
+/*按钮样式*/
+.info_btn{
+	padding-bottom: 20px;
+	background: #FFFFFF;
+	
+}
+.button{
+	width: 200px;
+	height: 44px;
+	border-radius: 20px;
+	font-size: 17px;
+	line-height:44px ;
+	color: #fff;
+	font-family: 'Microsoft YaHei';
+	padding-bottom: 0px;
+	text-align: center;
+}
+.btn {
+	width: 200px;
+	height: 44px;
+	margin: 20px auto;
+	border-radius: 20px;
+	background: #006BDD;
+	font-size: 17px;
+	color: #fff;
+	font-family: 'Microsoft YaHei';
+	border: 1px solid #1d8aff;
+	padding-bottom: 0px;
+}
+.btn:focus,
+.btn:hover {
+	border-radius: 20px;
+	background-color: #003BB3;
+	font-size: 17px;
+	color: #fff;
+	font-family: 'Microsoft YaHei';
+	text-decoration: none;
+}
+
+.btn1{
+	background: #FF0000;
+	border: 1px solid #FF0008;
+}
+.btn1:focus,
+.btn1:hover {
+	border-radius: 20px;
+	background-color: #FF2828;
+	font-size: 17px;
+	color: #fff;
+	font-family: 'Microsoft YaHei';
+	text-decoration: none;
+}
+.btn2{
+	background: #009E08;
+	border: 1px solid #4AC84F;
+	width: 40%;
+}
+.btn2:focus,
+.btn2:hover {
+	border-radius: 20px;
+	background-color: #007500;
+	font-size: 17px;
+	color: #fff;
+	font-family: 'Microsoft YaHei';
+	text-decoration: none;
+}
+.like {
+	margin: -6px;
+	float: right;
+	margin-right: 10px;
+}
+.big {
+	width: 100%;
+			}

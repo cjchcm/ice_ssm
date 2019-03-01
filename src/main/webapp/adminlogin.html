@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://m.zhaopin.com/account/login -->
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>系统管理员登录</title>
+		<link rel="shortcut icon" href="img/head1.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<!--<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">-->
+		<link href="css/login.css" rel="stylesheet">
+
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script async="" src="js/analytics.js"></script>
+		<script type="text/javascript" async="" src="js/dywe.js"></script>
+
+		<noscript>您的浏览器不支持JavaScript,请使用其它浏览器</noscript>
+
+	</head>
+
+	<body>
+	<script type="text/javascript">
+    //屏蔽android back
+    $(document).ready(function () {
+        window.addEventListener("backbutton", function (e) {
+            dialogCloseAction();
+        });
+    });
+    
+
+    function Error() {
+        $(".warn_message").text("");
+        var name = $("#userName").val();
+        var pwd = $("#password").val();
+      
+
+        //验证账号
+       if (name == undefined || name == '') {
+            //alert("请输入邮箱账号");
+            $(".warn_message").html("请输入邮箱账号");
+            return;
+        }
+        
+        //验证密码
+        if (pwd == undefined || pwd == '') {
+            //alert("请输入密码");
+            $(".warn_message").html("请输入密码");
+            return;
+        }
+       
+        else{
+//      	alert(pwd+role+name);
+        	//form.submit();
+        	
+        	var url = "adminlogin.do";
+	        $.post(url,
+	        	{
+	        		account:name,
+	        		password:pwd
+	        	},
+	        	function(data){
+	        		if(data=="yes")
+	        			window.location.href="adminindex.do";
+	        		else if(data=="no")
+	        			$(".warn_message").html("密码错误");
+	        	}
+	        );
+        }
+//$(login).submit();
+//document.getElementById("formid").submit();
+    }
+
+</script>
+		
+		<style>
+			body {
+				min-height: 457px;
+				background: #fff;
+			}
+			.j_employmentBox .warn_message {
+				color: red;
+				line-height: 20px;
+				font-size: 13px;
+				text-align: center;
+				z-index: 4;
+			}
+		</style>
+		<div class="searchMain">
+			<div class="container" id="BodyContainer">
+				<header id="r_header" class="r_title">
+					<div class="r_returnbk" onclick="location='index.jsp'">
+						<img src="img/r_icon7.png" height="30">
+					</div>
+					登录万才网
+				</header>
+				<section class="r_content logRegTabCon">
+					<form method="post" name="form" >
+						<div class="log_reg_item">
+							<a>
+								<img src="img/img_login_1.png" width="17" height="20">
+								<input id="userName" name="userName" placeholder="账号" type="text" value="">
+							</a>
+							<a>
+								<img src="img/img_login_2.png" width="17" height="20">
+								<input id="password" name="pwd" placeholder="密码" type="password">
+								<i class="show_hide_pass icon_invisible"></i>
+							</a>
+	
+						</div>
+						<section class="j_employmentBox other_operation">
+							<div class="check">
+								
+								<a href="forgetPwd.html" class="right" >忘记密码？</a>
+							</div>
+							<div class="warn_message"></div>
+							<div id="login_sub" class="btn" onclick="Error();">登 录</div>
+		
+						</section>
+					</form>
+				</section>
+			</div>
+		</div>
+<script>
+
+    //切换输入密码明暗文
+    $password = $('#password');
+    $('.log_reg_item a .show_hide_pass').click(function (event) {
+        $(this).hasClass("icon_invisible") ? ($(this).removeClass("icon_invisible").addClass("icon_visible"),
+         $password.attr("type", "text")) : $(this).hasClass("icon_visible") && ($(this).removeClass("icon_visible").addClass("icon_invisible"),
+         $password.attr("type", "password"));
+    });
+
+	$(document).keydown(function(event){ 
+		if(event.keyCode == 13){
+			$('#login_sub').click(); 
+	} 
+	});
+</script>
+	</body>
+
+</html>

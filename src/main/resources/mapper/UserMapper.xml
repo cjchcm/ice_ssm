@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.togogo.mapper.UserMapper">
+    <!--注册 普通用户-->
+    <insert id="createUser" parameterType="net.togogo.bean.User">
+        insert into tb_user (user_email,user_password,user_name)values (
+        #{user_email},#{user_password},#{user_name}
+        )
+    </insert>
+    <!--判断邮箱是否存在-->
+    <select id="checkExist" parameterType="java.lang.String" resultType="net.togogo.bean.User">
+        select * from tb_user where user_email = #{email}
+    </select>
+    <!--用户登录-->
+    <select id="checkLogin" parameterType="net.togogo.bean.User" resultType="net.togogo.bean.User">
+        select * from tb_user where user_email = #{user_email} and user_password = #{user_password}
+    </select>
+    <!--修改用户信息-->
+    <update id="updateUserInfo" parameterType="net.togogo.bean.User">
+        update tb_user set
+        user_name = #{user_name},
+        user_sex = #{user_sex},
+        user_birthday = #{user_birthday},
+        user_work_date = #{user_work_date},
+        user_born_city = #{user_born_city},
+        user_living_city = #{user_living_city},
+        user_phone = #{user_phone}
+        where
+        user_id = #{user_id}
+    </update>
+</mapper>

@@ -1,0 +1,74 @@
+.indexSearchContentTop {
+	height: 30px;
+	padding: 10px 10px 10px 15px;
+	background-color: #f8f8f8;
+	line-height: 30px;
+	position: relative
+}
+
+.indexSearchContentTop .close {
+	width: 26px;
+	background: url("http://img09.zhaopin.com/2012/other/mobile/m/4-2_indexSearch.png") no-repeat left center;
+	background-size: 11px 20px;
+	height: 30px;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+	z-index: 200
+}
+
+.indexSearchContentTop .wrap {
+	width: 100%;
+	/*padding-left: 26px;*/
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative
+}
+
+.indexSearchContentTop .wrap #indexSearchBox {
+	width: 100%;
+	padding-left: 10px;
+	background-color: #e6e6e8;
+	border-radius: 5px;
+	padding-right: 37px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 30px
+}
+
+.indexSearchContentTop .btn {
+	width: 37px;
+	height: 30px;
+	position: absolute;
+	margin-bottom: 0px;
+	padding: 0 0;
+	right: 0;
+	top: 0;
+	margin: 0 0;
+	background: url("http://img09.zhaopin.com/2012/other/mobile/m/4-2_indexSearchBtn2.png") no-repeat left center;
+	background-size: auto 21px;
+	border: 0;
+}
+
+.indexSearchContentTop form {
+	margin: 0 0;
+}
+
+.left .tput {
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 542px;
+	height: 30px;
+}
+
+.right {
+	float: right
+}
+
+
+/*input{
+	line-height: 30px;
+}*/

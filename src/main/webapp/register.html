@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>注册</title>
+		<link rel="shortcut icon" href="img/head1.png">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<link href="css/login.css" rel="stylesheet">
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script async="" src="js/analytics.js"></script>
+		<script type="text/javascript" async="" src="js/dywe.js"></script>
+
+		<noscript>您的浏览器不支持JavaScript,请使用其它浏览器</noscript>
+
+	</head>
+<body>
+     
+
+<style>
+    body{min-height: 457px;background:#fff;}
+    .j_employmentBox .warn_message {
+				color: red;
+				line-height: 20px;
+				font-size: 13px;
+				text-align: center;
+				z-index: 4;
+			}
+</style>
+<div class="searchMain">
+    <div class="container" id="BodyContainer">
+        <header id="r_header" class="r_title">
+            <div class="r_returnbk" onclick="location='login.html'">
+                <img src="img/r_icon7.png" height="30">
+            </div>
+            注册 
+        </header>
+        <section class="r_content logRegTabCon">
+        <form method="post" name="registerForm" >
+            <div class="log_reg_item">
+                <a>
+                    <img src="img/img_login_1.png" width="17" height="20">
+                    <input id="email" name="email" type="email" placeholder="邮箱" value="">
+                </a>
+                <a>
+                    <img src="img/img_login_2.png" width="15" height="20">
+                    <input id="pwd" name="pwd" placeholder="密码" type="text">
+                    <i class="show_hide_pass icon_visible"></i>
+                </a>
+                <a>
+                    <img src="img/img_login_3.png" width="17" height="16">
+                    <input id="username" name="username" placeholder="用户名" type="text" value="">
+          
+                </a>
+                <a style="text-align: center;">
+								<input type="radio" name="role" value="person" checked="checked"/> 个人 &nbsp;&nbsp;&nbsp;
+								<input type="radio" name="role" value="company" /> 企业 
+				</a>
+            </div>
+            <section class="j_employmentBox pt12 other_operation">
+        		<div class="warn_message"></div>
+                <div id="register_sub" class="btn" onclick="reg();">注 册</div>
+                <p>已有帐号，<a href="#" class="login_tip" onclick="login();">立即登录</a></p>
+            </section>
+            </form>
+        </section>
+    </div>
+</div>
+<script>
+
+    //切换输入密码明暗文
+    $password = $('#pwd');
+    $('.log_reg_item a .show_hide_pass').click(function (event) {
+        $(this).hasClass("icon_invisible") ? ($(this).removeClass("icon_invisible").addClass("icon_visible"),
+         $password.attr("type", "text")) : $(this).hasClass("icon_visible") && ($(this).removeClass("icon_visible").addClass("icon_invisible"),
+         $password.attr("type", "password"));
+    });
+
+</script>
+
+<script>
+//  clearCookie();
+    function login() {
+        window.location.href = "login.html";
+    }
+
+    //====处理反馈完成后弹出提示====
+    var handlePromptTime;
+    function handlePrompt(val) {
+        $("body").append("<div class='handlePrompt'>" + val + "</div>");
+        clearTimeout(handlePromptTime);
+        handlePromptTime = setTimeout(function () {
+            $(".handlePrompt").remove();
+        }, 2000);
+    }
+   
+
+    //验证注册信息
+    function reg() {
+
+        $(".warn_message").text("");
+        var email = $("#email").val();
+        var pwd = $("#pwd").val();
+        var username = $("#username").val();
+        var role = document.registerForm.role.value;
+        var emailCheck = $("#emailCheck").val();
+        
+        if (email == undefined || email == "") {
+            $(".warn_message").html("请输入邮箱");
+            return;
+        }
+
+        var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+       if (!reg.test(email)) {
+            $(".warn_message").html("邮箱格式不正确");
+            return;
+        }
+
+        if (pwd == undefined || pwd == "") {
+            $(".warn_message").html("请输入密码");
+            return;
+        }
+        var pwdreg = /^[a-zA-Z0-9\_]{6,25}$/;
+        if (!pwdreg.test(pwd)) {
+            $(".warn_message").html("密码输入有误，密码必须为6-20位字母、数字组合,特殊字符只包含_");
+            return;
+        }
+        
+        if (username == undefined || username == "") {
+            $(".warn_message").html("请输入用户名");
+            return;
+        }
+
+		//验证角色
+        if (role == undefined || role == '') {
+            //alert("请选择角色");
+            $(".warn_message").html("请选择角色");
+            return;
+        }
+
+        else{
+        	var url = "register.do";
+	        $.post(url,
+	        	{
+	        		email:email,
+	        		password:pwd,
+	        		username:username,
+	        		role:role
+	        	},
+	        	function(data){
+	        		if(data=="codeError")
+	        			$(".warn_message").html("验证码错误");
+	        		/*判断邮箱是否存在*/
+	        		else if(data=="emailExist")
+	        			$(".warn_message").html("帐号已经存在");
+	        		else if(data=="fail")
+	        			$(".warn_message").html("未知错误");
+	        		else if(data=="success"){
+	        			alert("恭喜你，注册成功！");
+	        			window.location.href="login.html";
+	        		}
+	        			
+	        	}
+	        );
+        }
+        return true;
+    }
+
+    //切换验证码状态,60秒
+    function SwitchingCheak() {
+    	$(".warn_message").text("");
+    	var email = $("#email").val();
+    	
+	    if (email == undefined || email == "") {
+	        $(".warn_message").html("请输入邮箱");
+	        return;
+	    }
+	        
+        var $mobileCheak = $(".log_reg_item a .mobileCheak");
+        var $getCheakBtn = $(".log_reg_item a .mobileCheak .text");
+        var $countdownBtn = $(".log_reg_item a .mobileCheak .countdown");
+        var $countdownBtnNum = $(".log_reg_item a .mobileCheak .countdown .num");
+
+        if (!$mobileCheak.hasClass("hover")) {
+            $mobileCheak.addClass("hover");
+            var num = 60;
+            var t;
+            var time = setInterval(function () {
+                if (num == 0) {
+                    clearInterval(time);
+                    $mobileCheak.removeClass("hover");
+                    $countdownBtnNum.text("60s");
+                } else {
+                    num--;
+                    t = num + "s";
+                    $countdownBtnNum.text(t);
+                }
+            }, 1000);
+        }
+        
+        
+        var url = "sendEmail.do";
+	        $.post(url,
+	        	{
+	        		email:email
+	        	}
+	        );
+    }
+   $(document).keydown(function(event){ 
+		if(event.keyCode == 13){
+			$('#register_sub').click(); 
+	} 
+	});
+</script>
+</body></html>

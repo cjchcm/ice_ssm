@@ -1,0 +1,94 @@
+.user_show {
+    background-color: #FFFFFF;
+    height: 150px;
+    text-align: center;
+}
+.abc {
+    margin: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+}
+.abc>img {
+    vertical-align: middle;
+}
+.list {
+	margin-top: 2px;;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	border-bottom: 1px solid #dcdcdc
+}
+.myZhilianList {
+	width: 95%;
+	margin: 0 auto;
+	padding-top: 8px;
+	overflow: hidden
+}
+
+.myZhilianList:last-child {
+	padding-bottom: 8px
+}
+
+.myZhilianList.pad0 {
+	padding: 0
+}
+
+.myZhilianList li {
+	font-size: 18px;
+	background: #fff url(http://img09.zhaopin.com/2012/other/mobile/m/r_icon5.png) no-repeat right center;
+	background-size: 40px 24px;
+	position: relative
+}
+
+.myZhilianList li .wrap {
+	border-bottom: 1px solid #d6d6d6;
+	padding-right: 40px;
+	margin-left: 36px;
+	display: block;
+	height: 55px;
+	line-height: 55px
+}
+
+.myZhilianList li:last-child .wrap {
+	border-bottom: none
+}
+
+.myZhilianList li .name {
+	color: #404040;
+	float: left;
+	font-size: 16px
+}
+
+.myZhilianList li .num {
+	color: #17a5ff;
+	float: right;
+	padding-right: 15px
+}
+
+.myZhilianList li img {
+	position: relative;
+	left: -21px;
+	top: 15px;
+	float: left
+}
+
+.SignOut {
+	width: 95%;
+	background-color: #fff;
+	overflow: hidden;
+	margin: 0 auto
+}
+
+.SignOut span {
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	background-color: #1d8aff;
+	width: 90%;
+	margin: 10px auto;
+	display: block;
+	border-radius: 3px
+}
